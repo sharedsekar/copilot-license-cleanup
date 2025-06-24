@@ -1,0 +1,16 @@
+name: Cleanup Copilot Licenses
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 0 * * *'
+
+jobs:
+  copilot:
+    name: Copilot Seats
+    runs-on: ubuntu-latest
+    steps:
+      - uses: austenstone/copilot-license-cleanup@v1.5
+        with:
+          github-token: ${{ secrets.TOKEN }}
+          enterprise: sharedsekarent
+          remove: false
